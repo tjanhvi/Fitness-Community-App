@@ -1,7 +1,7 @@
-import 'package:fitness_app/screens/features_screen.dart';
+import 'package:fitness_app/screens/homepage_Sections/features_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'homepage_Sections/Discover.dart';
+import 'screens/homepage_Sections/Discover.dart';
 
 void main() {
   runApp(const MyApp());
