@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/features_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'homepage_Sections/Discover.dart';
@@ -52,7 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      
       body: Discover(),
+      
       bottomNavigationBar: BottomNavigationBar(        
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -97,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           );
         },
-      )  
+      )        
     );
   }
 }
