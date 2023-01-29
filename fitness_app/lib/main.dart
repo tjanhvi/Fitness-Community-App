@@ -1,4 +1,5 @@
 import 'package:fitness_app/screens/homepage_Sections/features_screen.dart';
+import 'package:fitness_app/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/homepage_Sections/Discover.dart';
@@ -34,26 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: Colors.purple.shade400,
-        actions: [          
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.more_vert),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      
+    return Scaffold( 
       body: Discover(),
       
       bottomNavigationBar: BottomNavigationBar(        
