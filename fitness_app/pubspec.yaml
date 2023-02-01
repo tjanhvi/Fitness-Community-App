@@ -83,6 +83,16 @@ flutter:
     - assets/images/homepage/ques2.jpg
     - assets/images/homepage/ques3.jpg
     - assets/images/profile/profile.png
+    - assets/images/tracker/medicine/medicineicon.jpg
+    - assets/images/tracker/medicine/tablet.png
+    - assets/images/tracker/medicine/capsule.png
+    - assets/images/tracker/medicine/drop.png
+    - assets/images/tracker/medicine/injection.png
+    - assets/images/tracker/medicine/puff.png
+    - assets/images/tracker/medicine/spray.png
+    - assets/images/tracker/medicine/teaspoon.png
+    - assets/images/tracker/medicine/tablespoon.png
+    - assets/images/tracker/medicine/medicinesplash.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

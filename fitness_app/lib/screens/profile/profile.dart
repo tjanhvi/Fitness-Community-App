@@ -21,8 +21,6 @@ class _ProfileState extends State<Profile> {
           child: Container(
               child: Column(
                 children: [
-                  const SizedBox(height: 20),
-        
                   Container(
                     height: 270,
                     width: double.infinity,

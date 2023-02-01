@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fitness_app/screens/planner/goal_provider.dart';
-import 'package:fitness_app/screens/planner/view.dart';
+import 'package:fitness_app/screens/Planner/goal_provider.dart';
+import 'package:fitness_app/screens/Planner/view.dart';
 import 'package:provider/provider.dart';
 
 class Planner extends StatelessWidget {

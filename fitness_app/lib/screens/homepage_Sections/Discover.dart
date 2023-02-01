@@ -8,6 +8,8 @@ class Discover extends StatefulWidget {
 }
 
 class _DiscoverState extends State<Discover> {
+  int _selectedIndex = 0;
+  final ScrollController _homeController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -1126,6 +1128,51 @@ class _DiscoverState extends State<Discover> {
           ),
         ),
       ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_view_day),
+            label: 'Planner',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.group),
+            label: 'Community',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        selectedItemColor: Colors.purple.shade500,
+        type: BottomNavigationBarType.fixed,
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              if (_selectedIndex == index) {
+                _homeController.animateTo(
+                  0.0,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeOut,
+                );
+              }
+              break;
+          }
+          setState(
+            () {
+              _selectedIndex = index;
+            },
+          );
+        },
+      )
+
     );
   
   }
