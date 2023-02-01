@@ -1,10 +1,11 @@
-import 'package:fitness_app/screens/homepage_Sections/features_screen.dart';
-import 'package:fitness_app/screens/planner/planner.dart';
-import 'package:fitness_app/screens/planner/view.dart';
-import 'package:fitness_app/screens/profile/profile.dart';
+import 'package:fitness_app/screens/Homepage_Sections/features_screen.dart';
+import 'package:fitness_app/screens/Planner/planner.dart';
+import 'package:fitness_app/screens/Planner/view.dart';
+import 'package:fitness_app/screens/Profile/profile.dart';
+import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_splash.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/homepage_Sections/Discover.dart';
+import 'screens/Homepage_Sections/Discover.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,56 +32,12 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0;
-  final ScrollController _homeController = ScrollController();
+class _MyHomePageState extends State<MyHomePage> {  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Profile(),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_view_day),
-              label: 'Planner',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.group),
-              label: 'Community',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          selectedItemColor: Colors.purple.shade500,
-          type: BottomNavigationBarType.fixed,
-          onTap: (int index) {
-            switch (index) {
-              case 0:
-                if (_selectedIndex == index) {
-                  _homeController.animateTo(
-                    0.0,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeOut,
-                  );
-                }
-                break;
-            }
-            setState(
-              () {
-                _selectedIndex = index;
-              },
-            );
-          },
-        ));
+      body: FeaturesScreen(),
+    );
   }
 }

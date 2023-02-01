@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fitness_app/screens/planner/goal_datasource.dart';
-import 'package:fitness_app/screens/planner/goal_provider.dart';
+import 'package:fitness_app/screens/Planner/goal_datasource.dart';
+import 'package:fitness_app/screens/Planner/goal_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
