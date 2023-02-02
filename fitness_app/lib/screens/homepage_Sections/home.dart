@@ -27,6 +27,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  double NutriNum = 10;
+  double WeightNum = 10;
+  bool Nutipressed = false;
+  bool weigpressed = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Container(
                               // color: Colors.red,
-                              width: MediaQuery.of(context).size.width * 0.3,
+                              width: MediaQuery.of(context).size.width * 0.2,
                               height: MediaQuery.of(context).size.height * 0.1,
                               child: SfRadialGauge(
                                 axes: [
@@ -186,7 +191,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     axisLineStyle: AxisLineStyle(thickness: 10),
                                     pointers: [
                                       RangePointer(
-                                          value: 10,
+                                          value: Nutipressed == true
+                                              ? NutriNum
+                                              : 10,
                                           width: 10,
                                           color: Color(0xFFFFCD60),
                                           enableAnimation: true,
@@ -229,10 +236,33 @@ class _MyHomePageState extends State<MyHomePage> {
                       SizedBox(
                         width: 60,
                       ),
-                      Icon(
-                        Icons.add_circle,
-                        size: 40,
-                        color: Colors.orange,
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     // setState(() {
+                      //     weigpressed = true;
+                      //     // });
+                      //     setState(() {});
+                      //   },
+                      // child: Icon(
+                      //   Icons.add_circle,
+                      //   size: 40,
+                      //   color: Colors.purple,
+                      // ),
+                      // ),
+                       FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        elevation: 0.0,
+                        onPressed: (() {
+                          setState(() {
+                            Nutipressed = true;
+                            NutriNum += 5;
+                          });
+                        }),
+                        child: const Icon(
+                          Icons.add_circle,
+                          size: 40,
+                          color: Colors.purple,
+                        ),
                       ),
                       SizedBox(
                         height: 20,
@@ -245,7 +275,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     margin:
                         EdgeInsets.only(left: 5, top: 10, right: 5, bottom: 20),
-                    width: MediaQuery.of(context).size.width * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.2,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -277,7 +307,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             Container(
                               // color: Colors.red,
-                              width: MediaQuery.of(context).size.width * 0.3,
+                              width: MediaQuery.of(context).size.width * 0.2,
                               height: MediaQuery.of(context).size.height * 0.1,
                               child: SfRadialGauge(
                                 axes: [
@@ -290,7 +320,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     axisLineStyle: AxisLineStyle(thickness: 10),
                                     pointers: [
                                       RangePointer(
-                                          value: 10,
+                                          value: weigpressed == true
+                                              ? WeightNum
+                                              : 10,
                                           width: 10,
                                           color: Color(0xFFFFCD60),
                                           enableAnimation: true,
@@ -307,7 +339,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 height: 40.00,
                                                 // color: Colors.red,
                                               ),
-                                              Padding(
+                                              const Padding(
                                                 padding: EdgeInsets.fromLTRB(
                                                     0, 2, 0, 0),
                                                 // child: Container(child: Text("kcal")),
@@ -344,15 +376,37 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 150,
                       ),
                       // RawMaterialButton(
-                      //   onPressed: () {},
-                      //   elevation: 2.0,
-                      //   fillColor: Colors.purple,
-                      //   child:
-                      Icon(
-                        Icons.add_circle,
-                        size: 40,
-                        color: Colors.purple,
+                      //   onPressed: () {
+                      //     weigpressed = true;
+                      //   },
+                      //   elevation: 0.0,
+                      //   // fillColor: Colors.purple,
+                      //   child: const Icon(
+                      //     Icons.add_circle,
+                      //     size: 40,
+                      //     color: Colors.purple,
+                      //   ),
+                      // ),
+                      FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        elevation: 0.0,
+                        onPressed: (() {
+                          setState(() {
+                            weigpressed = true;
+                            WeightNum += 5;
+                          });
+                        }),
+                        child: const Icon(
+                          Icons.add_circle,
+                          size: 40,
+                          color: Colors.purple,
+                        ),
                       ),
+                      // Icon(
+                      //   Icons.add_circle,
+                      //   size: 40,
+                      //   color: Colors.purple,
+                      // ),
                       // ),
                       SizedBox(
                         height: 20,
@@ -371,3 +425,23 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+// Widget Contenttopdown() {
+//   return Container(
+//     width: double.infinity,
+//     height: double.infinity,
+//     child: Column(
+//       crossAxisAlignment: CrossAxisAlignment.center,
+//       children: [
+//         SizedBox(
+//           height: 300,
+//         ),
+//         Container(
+//           width: 130,
+//           height: 50,
+//           color: Colors.red,
+//         )
+//       ],
+//     ),
+//   );
+// }
