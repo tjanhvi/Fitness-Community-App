@@ -1,4 +1,5 @@
 import 'package:fitness_app/screens/Homepage_Sections/homepage.dart';
+import 'package:fitness_app/screens/login_signup/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomePage(),
+      body: Splash(),
     );
   }
 }
