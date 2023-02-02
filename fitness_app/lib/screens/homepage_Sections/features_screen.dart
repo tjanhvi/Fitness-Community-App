@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:fitness_app/screens/Homepage_Sections/Discover.dart';
+import 'package:fitness_app/screens/Homepage_Sections/Sections.dart';
 import 'package:flutter/material.dart';
 
 class FeaturesScreen extends StatelessWidget {
@@ -9,8 +9,7 @@ class FeaturesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey.shade200,
-        appBar: AppBar(title: const Text("Features")),
+        
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
