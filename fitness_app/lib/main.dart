@@ -1,11 +1,5 @@
-import 'package:fitness_app/screens/Homepage_Sections/features_screen.dart';
-import 'package:fitness_app/screens/Planner/planner.dart';
-import 'package:fitness_app/screens/Planner/view.dart';
-import 'package:fitness_app/screens/Profile/profile.dart';
-import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_splash.dart';
+import 'package:fitness_app/screens/Homepage_Sections/homepage.dart';
 import 'package:flutter/material.dart';
-
-import 'screens/Homepage_Sections/Discover.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FeaturesScreen(),
+      body: HomePage(),
     );
   }
 }
