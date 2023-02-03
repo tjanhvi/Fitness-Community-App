@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_tracker.dart';
 import 'package:flutter/material.dart';
 
 class Sections extends StatefulWidget {
@@ -13,7 +14,27 @@ class _SectionsState extends State<Sections> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(    
+    return Scaffold( 
+      drawer: Drawer(),   
+      appBar: AppBar(
+        title: Text('Fitness App'),
+        backgroundColor: Colors.purple.shade400,
+        actions: [          
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      
       body: SingleChildScrollView(
         child: Container(
           child: Padding(
@@ -158,7 +179,7 @@ class _SectionsState extends State<Sections> {
                                           width: 7, color: Colors.grey.shade200)),
                                   child: Icon(
                                     Icons.night_shelter_outlined,
-                                    color: Colors.blue,
+                                    color: Colors.purple,
                                     size: 40,
                                   ),
                                 ),
@@ -207,7 +228,7 @@ class _SectionsState extends State<Sections> {
                                           width: 7, color: Colors.grey.shade200)),
                                   child: Icon(
                                     Icons.run_circle_outlined,
-                                    color: Colors.blue,
+                                    color: Colors.purple,
                                     size: 40,
                                   ),
                                 ),
@@ -292,7 +313,7 @@ class _SectionsState extends State<Sections> {
                                               color: Colors.grey.shade200)),
                                       child: Icon(
                                         Icons.water_drop_outlined,
-                                        color: Colors.blue,
+                                        color: Colors.purple,
                                         size: 40,
                                       ),
                                     ),
@@ -341,53 +362,61 @@ class _SectionsState extends State<Sections> {
           
                         // row 2 , box -4 Medication track
           
-                        Material(
-                          elevation: 5,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          child: Container(
-                            padding: EdgeInsets.all(15.0),
-                            height: MediaQuery.of(context).size.height - 620,
-                            width: MediaQuery.of(context).size.width - 220,
-                            // height: MediaQuery.of(context).size.width - 280,
-                            // width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height:
-                                      MediaQuery.of(context).size.height - 720,
-                                  width: MediaQuery.of(context).size.width - 310,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      border: Border.all(
-                                          width: 7, color: Colors.grey.shade200)),
-                                  child: Icon(
-                                    Icons.medication_outlined,
-                                    color: Colors.blue,
-                                    size: 40,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MedicineTracker()));
+                          },
+                          child: Material(
+                            elevation: 5,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            child: Container(
+                              padding: EdgeInsets.all(15.0),
+                              height: MediaQuery.of(context).size.height - 620,
+                              width: MediaQuery.of(context).size.width - 220,
+                              // height: MediaQuery.of(context).size.width - 280,
+                              // width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height:
+                                        MediaQuery.of(context).size.height - 720,
+                                    width: MediaQuery.of(context).size.width - 310,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                            width: 7, color: Colors.grey.shade200)),
+                                    child: Icon(
+                                      Icons.medication_outlined,
+                                      color: Colors.purple,
+                                      size: 40,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Track Medication",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500, fontSize: 18),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "Set Interval",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey.shade500),
-                                ),
-                              ],
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "Track Medication",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500, fontSize: 18),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "Set Interval",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.grey.shade500),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

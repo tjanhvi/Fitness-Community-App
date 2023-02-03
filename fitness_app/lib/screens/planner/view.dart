@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/Homepage_Sections/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/screens/Planner/goal_datasource.dart';
 import 'package:fitness_app/screens/Planner/goal_provider.dart';
@@ -20,6 +21,15 @@ class _PlannerWidgetState extends State<PlannerPage> {
     final provider = Provider.of<GoalProvider>(context);
     return Scaffold(
       appBar: AppBar(
+        leading : IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push (
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+        ),
         title: const Text('Planner'),
         //backgroundColor: Colors.purple[800],
         actions: [
