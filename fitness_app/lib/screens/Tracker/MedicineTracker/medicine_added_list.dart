@@ -57,263 +57,19 @@ class _MedicineAddedListState extends State<MedicineAddedList> {
 
             SizedBox(height: 20),
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset("assets/images/tracker/medicine/medicinesplash.png",
-                          width: 50,
-                          height: 50, 
-                        ),
-
-                        SizedBox(width: 5.0),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Paracetamol',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                              ),
-                            ),
-
-                            SizedBox(height: 3.0),
-
-                            Row(
-                              children: [
-                                Icon(Icons.notifications, color: Colors.purple.shade300, size: 13),
-                                SizedBox(width: 5.0),
-
-                                Text('Scheduled',
-                                  style: TextStyle(
-                                    color: Colors.purple.shade300,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],                          
-                        ),
-                        
-                      ],
-                    ),                    
-
-                    PopupMenuButton(
-                      icon: Icon(Icons.more_vert, color: Colors.purple.shade300, size: 30),
-                      itemBuilder: (context) => [
-                        PopupMenuItem(
-                          child: Text('Edit'),
-                        ),
-                        PopupMenuItem(
-                          child: Text('Delete'),
-                        ),
-                      ],
-                    ),                    
-
-                  ],
-                ),
-              ],
-            ),
-
+            MedicineAdded(medicineName: 'Paracetamol'),
+            
             SizedBox(height: 20),
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset("assets/images/tracker/medicine/medicinesplash.png",
-                          width: 50,
-                          height: 50, 
-                        ),
-
-                        SizedBox(width: 5.0),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Paracetamol',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                              ),
-                            ),
-
-                            SizedBox(height: 3.0),
-
-                            Row(
-                              children: [
-                                Icon(Icons.notifications, color: Colors.purple.shade300, size: 13),
-                                SizedBox(width: 5.0),
-
-                                Text('Scheduled',
-                                  style: TextStyle(
-                                    color: Colors.purple.shade300,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],                          
-                        ),
-                        
-                      ],
-                    ),                    
-
-                    PopupMenuButton(
-                      icon: Icon(Icons.more_vert, color: Colors.purple.shade300, size: 30),
-                      itemBuilder: (context) => [
-                        PopupMenuItem(
-                          child: Text('Edit'),
-                        ),
-                        PopupMenuItem(
-                          child: Text('Delete'),
-                        ),
-                      ],
-                    ),                    
-
-                  ],
-                ),
-              ],
-            ),
-
+            MedicineAdded(medicineName: 'Crocin'), 
+            
             SizedBox(height: 20),
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset("assets/images/tracker/medicine/medicinesplash.png",
-                          width: 50,
-                          height: 50, 
-                        ),
-
-                        SizedBox(width: 5.0),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Paracetamol',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                              ),
-                            ),
-
-                            SizedBox(height: 3.0),
-
-                            Row(
-                              children: [
-                                Icon(Icons.notifications, color: Colors.purple.shade300, size: 13),
-                                SizedBox(width: 5.0),
-
-                                Text('Scheduled',
-                                  style: TextStyle(
-                                    color: Colors.purple.shade300,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],                          
-                        ),
-                        
-                      ],
-                    ),                    
-
-                    PopupMenuButton(
-                      icon: Icon(Icons.more_vert, color: Colors.purple.shade300, size: 30),
-                      itemBuilder: (context) => [
-                        PopupMenuItem(
-                          child: Text('Edit'),
-                        ),
-                        PopupMenuItem(
-                          child: Text('Delete'),
-                        ),
-                      ],
-                    ),                    
-
-                  ],
-                ),
-              ],
-            ),
-
+            MedicineAdded(medicineName: 'Dolo 650mg'), 
+            
             SizedBox(height: 20),
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset("assets/images/tracker/medicine/medicinesplash.png",
-                          width: 50,
-                          height: 50, 
-                        ),
-
-                        SizedBox(width: 5.0),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Paracetamol',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                              ),
-                            ),
-
-                            SizedBox(height: 3.0),
-
-                            Row(
-                              children: [
-                                Icon(Icons.notifications, color: Colors.purple.shade300, size: 13),
-                                SizedBox(width: 5.0),
-
-                                Text('Scheduled',
-                                  style: TextStyle(
-                                    color: Colors.purple.shade300,
-                                    fontSize: 13,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],                          
-                        ),
-                        
-                      ],
-                    ),                    
-
-                    PopupMenuButton(
-                      icon: Icon(Icons.more_vert, color: Colors.purple.shade300, size: 30),
-                      itemBuilder: (context) => [
-                        PopupMenuItem(
-                          child: Text('Edit'),
-                        ),
-                        PopupMenuItem(
-                          child: Text('Delete'),
-                        ),
-                      ],
-                    ),                    
-
-                  ],
-                ),
-              ],
-            ),
+            MedicineAdded(medicineName: 'Citizine'),
             
           ],
         ),
@@ -321,3 +77,75 @@ class _MedicineAddedListState extends State<MedicineAddedList> {
     );
   }
 }
+
+class MedicineAdded extends StatelessWidget { 
+  final String medicineName; 
+  MedicineAdded ({required this.medicineName}); 
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Image.asset("assets/images/tracker/medicine/medicinesplash.png",
+                    width: 50,
+                    height: 50, 
+                  ),
+
+                  SizedBox(width: 5.0),
+
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(medicineName,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+
+                      SizedBox(height: 3.0),
+
+                      Row(
+                        children: [
+                          Icon(Icons.notifications, color: Colors.purple.shade300, size: 13),
+                          SizedBox(width: 5.0),
+
+                          Text('Scheduled',
+                            style: TextStyle(
+                              color: Colors.purple.shade300,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],                          
+                  ),
+                  
+                ],
+              ),                    
+
+              PopupMenuButton(
+                icon: Icon(Icons.more_vert, color: Colors.purple.shade300, size: 30),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text('Edit'),
+                  ),
+                  PopupMenuItem(
+                    child: Text('Delete'),
+                  ),
+                ],
+              ),                    
+
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+} 

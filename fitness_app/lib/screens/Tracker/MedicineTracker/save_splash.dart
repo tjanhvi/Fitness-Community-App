@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/Homepage_Sections/homepage.dart';
 import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_added_list.dart';
 import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_tracker.dart';
 import 'package:flutter/material.dart';
@@ -90,6 +91,10 @@ class _SaveSplashState extends State<SaveSplash> {
 
             InkWell(
               onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
               },
               child: const Text(
                 'GO TO HOME',
