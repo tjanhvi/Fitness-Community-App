@@ -49,6 +49,8 @@ class _PlannerWidgetState extends State<PlannerPage> {
       ),
       body: Column(
         children: [
+          const SizedBox(height: 10),
+          
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

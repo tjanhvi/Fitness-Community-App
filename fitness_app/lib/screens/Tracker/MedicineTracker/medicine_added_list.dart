@@ -1,3 +1,4 @@
+import 'package:fitness_app/screens/Homepage_Sections/homepage.dart';
 import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_tracker.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,10 @@ class _MedicineAddedListState extends State<MedicineAddedList> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
           },
         ),
         title: Text('Medicine List',

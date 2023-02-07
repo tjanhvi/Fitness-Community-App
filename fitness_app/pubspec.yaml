@@ -37,7 +37,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  provider: ^6.0.5
+  provider: ^6.0.5  
+  syncfusion_flutter_gauges: ^20.4.48
+  wave: ^0.2.2
 
 dev_dependencies:
   flutter_test:
@@ -95,6 +97,9 @@ flutter:
     - assets/images/tracker/medicine/teaspoon.png
     - assets/images/tracker/medicine/tablespoon.png
     - assets/images/tracker/medicine/medicinesplash.png
+    - assets/images/tracker/sleep/sleepbg.jpg
+    - assets/images/tracker/sleep/sleepinfobg.jpg
+    - assets/images/tracker/sleep/moon.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
