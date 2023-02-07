@@ -1,4 +1,6 @@
 import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_tracker.dart';
+import 'package:fitness_app/screens/Tracker/SleepTracker/sleep_tracker.dart';
+import 'package:fitness_app/screens/Tracker/StepTracker/step_tracker.dart';
 import 'package:flutter/material.dart';
 
 class Sections extends StatefulWidget {
@@ -11,7 +13,7 @@ class Sections extends StatefulWidget {
 class _SectionsState extends State<Sections> {
   int _selectedIndex = 0;
   final ScrollController _homeController = ScrollController();
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
@@ -90,11 +92,11 @@ class _SectionsState extends State<Sections> {
                                   child: Icon(
                                     Icons.monitor_weight_outlined,
                                     color: Colors.purple,
-                                    size: 40,
+                                    size: 30,
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 20,
+                                  width: 25,
                                 ),
                                 Column(
                                   children: [
@@ -123,6 +125,7 @@ class _SectionsState extends State<Sections> {
                           elevation: 0,
                           onPressed: () {},
                           child: const Icon(Icons.add),
+                          backgroundColor: Colors.purple.shade400,
                         )
                       ],
                     ),
@@ -155,104 +158,122 @@ class _SectionsState extends State<Sections> {
                     //box 1 // Track Your sleep Details
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Material(
-                          elevation: 5,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          child: Container(
-                            padding: EdgeInsets.all(15.0),
-                            height: MediaQuery.of(context).size.height - 620,
-                            width: MediaQuery.of(context).size.width - 220,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height:
-                                      MediaQuery.of(context).size.height - 720,
-                                  width: MediaQuery.of(context).size.width - 310,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      border: Border.all(
-                                          width: 7, color: Colors.grey.shade200)),
-                                  child: Icon(
-                                    Icons.night_shelter_outlined,
-                                    color: Colors.purple,
-                                    size: 40,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Track your sleep",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500, fontSize: 18),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "Sleep at least 6 hr",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey.shade500),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                      children: [                        
                         //box 2 // step count
-                        Material(
-                          elevation: 5,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          child: Container(
-                            padding: EdgeInsets.all(15.0),
-                            height: MediaQuery.of(context).size.height - 620,
-                            width: MediaQuery.of(context).size.width - 220,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height:
-                                      MediaQuery.of(context).size.height - 720,
-                                  width: MediaQuery.of(context).size.width - 310,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      border: Border.all(
-                                          width: 7, color: Colors.grey.shade200)),
-                                  child: Icon(
-                                    Icons.run_circle_outlined,
-                                    color: Colors.purple,
-                                    size: 40,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const StepTracker()));
+                          },
+                          child: Material(
+                            elevation: 5,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            child: Container(
+                              padding: EdgeInsets.all(15.0),
+                              height: MediaQuery.of(context).size.height - 620,
+                              width: MediaQuery.of(context).size.width - 220,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height:
+                                        MediaQuery.of(context).size.height - 720,
+                                    width: MediaQuery.of(context).size.width - 310,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                            width: 7, color: Colors.grey.shade200)),
+                                    child: Icon(
+                                      Icons.run_circle_outlined,
+                                      color: Colors.purple,
+                                      size: 40,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Track your steps",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500, fontSize: 18),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "Connect now",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey.shade500),
-                                ),
-                              ],
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "Track your steps",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500, fontSize: 18),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "Connect now",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.grey.shade500),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
+
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SleepTracker()));
+                          },
+                          child: Material(
+                            elevation: 5,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            child: Container(
+                              padding: EdgeInsets.all(15.0),
+                              height: MediaQuery.of(context).size.height - 620,
+                              width: MediaQuery.of(context).size.width - 220,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height:
+                                        MediaQuery.of(context).size.height - 720,
+                                    width: MediaQuery.of(context).size.width - 310,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                            width: 7, color: Colors.grey.shade200)),
+                                    child: Icon(
+                                      Icons.night_shelter_outlined,
+                                      color: Colors.purple,
+                                      size: 40,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "Track your sleep",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500, fontSize: 18),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "Sleep at least 6 hr",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.grey.shade500),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+
                       ],
                     ),
                     SizedBox(
@@ -264,98 +285,102 @@ class _SectionsState extends State<Sections> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         //row - 2 , box 3 glass of water to drink
-                        Material(
-                          elevation: 5,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          child: Container(
-                            padding:
-                                EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-                            height: MediaQuery.of(context).size.height - 620,
-                            width: MediaQuery.of(context).size.width - 220,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                            ),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {},
-                                      child: Container(
-                                        height: 30,
-                                        width: 30,
+                        InkWell(
+                          onTap: () {                            
+                          },                          
+                          child: Material(
+                            elevation: 5,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            child: Container(
+                              padding:
+                                  EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+                              height: MediaQuery.of(context).size.height - 620,
+                              width: MediaQuery.of(context).size.width - 220,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(20)),
+                              ),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Container(
+                                          height: 30,
+                                          width: 30,
+                                          decoration: BoxDecoration(
+                                              color: Colors.grey,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Center(
+                                              child: Text(
+                                            "-",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                                color: Colors.white),
+                                          )),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: MediaQuery.of(context).size.height -
+                                            720,
+                                        width:
+                                            MediaQuery.of(context).size.width - 310,
                                         decoration: BoxDecoration(
-                                            color: Colors.grey,
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: Center(
-                                            child: Text(
-                                          "-",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20,
-                                              color: Colors.white),
-                                        )),
+                                            borderRadius: BorderRadius.circular(50),
+                                            border: Border.all(
+                                                width: 7,
+                                                color: Colors.grey.shade200)),
+                                        child: Icon(
+                                          Icons.water_drop_outlined,
+                                          color: Colors.purple,
+                                          size: 40,
+                                        ),
                                       ),
-                                    ),
-                                    Container(
-                                      height: MediaQuery.of(context).size.height -
-                                          720,
-                                      width:
-                                          MediaQuery.of(context).size.width - 310,
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(50),
-                                          border: Border.all(
-                                              width: 7,
-                                              color: Colors.grey.shade200)),
-                                      child: Icon(
-                                        Icons.water_drop_outlined,
-                                        color: Colors.purple,
-                                        size: 40,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {},
-                                      child: Container(
-                                        height: 30,
-                                        width: 30,
-                                        decoration: BoxDecoration(
-                                            color: Colors.black,
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: Center(
-                                            child: Text(
-                                          "+",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20,
-                                              color: Colors.white),
-                                        )),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Drink 7 glasses",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500, fontSize: 18),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "of water",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.grey.shade500),
-                                ),
-                              ],
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Container(
+                                          height: 30,
+                                          width: 30,
+                                          decoration: BoxDecoration(
+                                              color: Colors.black,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Center(
+                                              child: Text(
+                                            "+",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20,
+                                                color: Colors.white),
+                                          )),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "Drink 7 glasses",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500, fontSize: 18),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "of water",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.grey.shade500),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
