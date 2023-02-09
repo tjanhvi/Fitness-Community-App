@@ -40,6 +40,9 @@ dependencies:
   provider: ^6.0.5  
   syncfusion_flutter_gauges: ^20.4.48
   wave: ^0.2.2
+  pinput: ^2.2.23
+  firebase_core: ^2.4.1
+  firebase_auth: ^4.2.5
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +70,8 @@ flutter:
   assets:
     - assets/images/main_splashscreen/main_splash.png 
     - assets/images/login_signup/google.png 
+    - assets/images/login_signup/phone_login.png 
+    - assets/images/login_signup/otp.png 
     - assets/images/homepage/all.png
     - assets/images/homepage/blog.png
     - assets/images/homepage/hacks.png

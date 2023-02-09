@@ -1,6 +1,7 @@
 import 'package:fitness_app/screens/Homepage_Sections/homepage.dart';
 import 'package:fitness_app/screens/Tracker/SleepTracker/sleep_info.dart';
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class SleepTracker extends StatefulWidget {
   const SleepTracker({super.key});
@@ -27,34 +28,7 @@ class SleepTrackerState extends State<SleepTracker> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [  
-              const SizedBox(height: 40.0),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.arrow_back_ios, color: Colors.white),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const HomePage()),
-                      );
-                    },
-                  ),
-
-                  IconButton(
-                    icon: Icon(Icons.more_vert, color: Colors.white),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const HomePage()),
-                      );
-                    },
-                  ),
-                ],            
-              ),
-              
-              const SizedBox(height: 30.0),
+              const SizedBox(height: 100.0),              
 
               Container(
                 padding: const EdgeInsets.only(left: 20.0),
@@ -69,22 +43,46 @@ class SleepTrackerState extends State<SleepTracker> {
                 ),
               ),
 
-              const SizedBox(height: 120.0),
+              const SizedBox(height: 60.0),
 
+              //moon maker custom painter
               Center(
-                child: Container(                
-                  width: 230,
-                  height: 230,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/tracker/sleep/moon.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 200,
+                        height: 200,
+                        child: MoonMaker(size: 120),
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(                          DateTime.now().toString().substring(11, 16),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ],    ),
                 ),
               ),
 
-              const SizedBox(height: 30.0),
+              // Center(
+              //   child: Container(                
+              //     width: 230,
+              //     height: 230,
+              //     decoration: BoxDecoration(
+              //       image: DecorationImage(
+              //         image: AssetImage('assets/images/tracker/sleep/moon.png'),
+              //         fit: BoxFit.fill,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+
+              SizedBox(height: 30.0),
 
               Center(
                 child: ElevatedButton(
@@ -118,6 +116,63 @@ class SleepTrackerState extends State<SleepTracker> {
         ],       
         
       ),
+    );    
+  }
+}
+
+class MoonMaker extends StatelessWidget {
+  final double size;
+
+  MoonMaker({required this.size});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: MoonPainter(),
     );
   }
-}       
+}
+
+class MoonPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.rotate(math.pi / 2);
+    final center = Offset(size.width / 2, size.height / 2);
+    final paint = Paint()
+      ..shader = const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Color(0XFF8134AF),
+          Color(0XFFDD2A7B),
+          Color(0XFFFEDA77),
+          Color(0XFFF58529),
+        ],
+      ).createShader(Rect.fromLTRB(0, 0, size.width, size.height));
+
+    Path path1 = Path()
+      ..addOval(Rect.fromCenter(
+          center: center, width: size.width, height: size.height));
+
+    Path path2 = Path()
+      ..addOval(
+        Rect.fromCenter(
+          center: Offset(
+            center.dx - 10,
+            center.dy - 10,
+          ),
+          width: size.width - 10,
+          height: size.height - 10,
+        ),
+      );
+    canvas.drawPath(
+      Path.combine(PathOperation.difference, path1, path2),
+      paint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
+  }
+}
