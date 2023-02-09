@@ -1,4 +1,5 @@
 import 'package:fitness_app/screens/login_signup/login.dart';
+import 'package:fitness_app/screens/login_signup/phone.dart';
 import 'package:flutter/material.dart';
 
 
@@ -19,7 +20,7 @@ class _SplashState extends State<Splash> {
   _navigatetohome() async {
     await Future.delayed(const Duration(milliseconds: 2500), () {});
     Navigator.pushReplacement(
-        this.context, MaterialPageRoute(builder: (context) => const LoginPage()));
+        this.context, MaterialPageRoute(builder: (context) => const MyPhone()));
   }
 
   @override
