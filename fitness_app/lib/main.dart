@@ -8,16 +8,18 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MaterialApp(
-    title: 'Fitness App',
-    home: const MyHomePage(title: 'Fitness App'),
-    debugShowCheckedModeBanner: false,
-    routes: {
-      'phone': (context) => MyPhone(),
-      'verify': (context) => MyVerify(),
-      'home': (context) => MyHomePage(title: 'Fitness App',),
-    },
-  ));
+  runApp(
+    MaterialApp(
+      title: 'Fitness App',
+      home: const MyHomePage(title: 'Fitness App'),
+      debugShowCheckedModeBanner: false,
+      routes: {
+        'phone': (context) => MyPhone(),
+        'verify': (context) => MyVerify(),
+        'home': (context) => MyHomePage(title: 'Fitness App'),
+      },
+    ),
+  );
 }
 
 class MyHomePage extends StatefulWidget {
@@ -29,8 +31,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => MyHomePageState();
 }
 
-class MyHomePageState extends State<MyHomePage> {  
-
+class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
