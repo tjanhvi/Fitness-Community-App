@@ -1,6 +1,6 @@
 import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_tracker.dart';
 import 'package:fitness_app/screens/Tracker/SleepTracker/sleep_tracker.dart';
-import 'package:fitness_app/screens/Tracker/StepTracker/step_tracker.dart';
+import 'package:fitness_app/screens/Tracker/Step%20Tracker/step_tracker.dart';
 import 'package:flutter/material.dart';
 
 class Sections extends StatefulWidget {
@@ -165,7 +165,7 @@ class _SectionsState extends State<Sections> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const StepTracker()));
+                                    builder: (context) => StepTracker()));
                           },
                           child: Material(
                             elevation: 5,
