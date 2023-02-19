@@ -14,6 +14,24 @@ class _SectionsState extends State<Sections> {
   int _selectedIndex = 0;
   final ScrollController _homeController = ScrollController();
   
+  int _counter = 7;
+
+  void _incrementCounter() {
+    if (_counter < 7) {
+      setState(() {
+        _counter++;
+      });
+    }
+  }
+
+  void _decrementCounter() {
+    if (0 < _counter) {
+      setState(() {
+        _counter--;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
@@ -181,9 +199,8 @@ class _SectionsState extends State<Sections> {
                               child: Column(
                                 children: [
                                   Container(
-                                    height:
-                                        MediaQuery.of(context).size.height - 720,
-                                    width: MediaQuery.of(context).size.width - 310,
+                                    height: 90.0,
+                                    width: 90.0,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
@@ -195,7 +212,7 @@ class _SectionsState extends State<Sections> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 20,
                                   ),
                                   Text(
                                     "Track your steps",
@@ -222,7 +239,7 @@ class _SectionsState extends State<Sections> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SleepTracker()));
+                                  builder: (context) => SleepTracker()));
                           },
                           child: Material(
                             elevation: 5,
@@ -238,9 +255,8 @@ class _SectionsState extends State<Sections> {
                               child: Column(
                                 children: [
                                   Container(
-                                    height:
-                                        MediaQuery.of(context).size.height - 720,
-                                    width: MediaQuery.of(context).size.width - 310,
+                                    height: 90.0,
+                                    width: 90.0,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
@@ -252,7 +268,7 @@ class _SectionsState extends State<Sections> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 20,
                                   ),
                                   Text(
                                     "Track your sleep",
@@ -307,29 +323,23 @@ class _SectionsState extends State<Sections> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       GestureDetector(
-                                        onTap: () {},
+                                        onTap: _decrementCounter,
                                         child: Container(
                                           height: 30,
                                           width: 30,
-                                          decoration: BoxDecoration(
-                                              color: Colors.grey,
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
                                           child: Center(
                                               child: Text(
-                                            "-",
+                                            "−",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 20,
-                                                color: Colors.white),
+                                                fontSize: 30,
+                                                color: Colors.purple),
                                           )),
                                         ),
                                       ),
                                       Container(
-                                        height: MediaQuery.of(context).size.height -
-                                            720,
-                                        width:
-                                            MediaQuery.of(context).size.width - 310,
+                                        height: 90.0,
+                                        width: 90.0,
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(50),
                                             border: Border.all(
@@ -342,31 +352,27 @@ class _SectionsState extends State<Sections> {
                                         ),
                                       ),
                                       GestureDetector(
-                                        onTap: () {},
+                                        onTap: _incrementCounter,
                                         child: Container(
                                           height: 30,
                                           width: 30,
-                                          decoration: BoxDecoration(
-                                              color: Colors.black,
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
                                           child: Center(
                                               child: Text(
                                             "+",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 20,
-                                                color: Colors.white),
+                                                fontSize: 30,
+                                                color: Colors.purple),
                                           )),
                                         ),
                                       )
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 20,
                                   ),
                                   Text(
-                                    "Drink 7 glasses",
+                                    "Drink ${_counter} glasses",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500, fontSize: 18),
                                   ),
@@ -410,9 +416,8 @@ class _SectionsState extends State<Sections> {
                               child: Column(
                                 children: [
                                   Container(
-                                    height:
-                                        MediaQuery.of(context).size.height - 720,
-                                    width: MediaQuery.of(context).size.width - 310,
+                                    height: 90.0,
+                                    width: 90.0,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
@@ -424,7 +429,7 @@ class _SectionsState extends State<Sections> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 20,
                                   ),
                                   Text(
                                     "Track Medication",

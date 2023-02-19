@@ -21,15 +21,15 @@ class _PlannerWidgetState extends State<PlannerPage> {
     final provider = Provider.of<GoalProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        leading : IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.push (
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          },
-        ),
+        // leading : IconButton(
+        //   icon: Icon(Icons.arrow_back),
+        //   onPressed: () {
+        //     Navigator.push (
+        //       context,
+        //       MaterialPageRoute(builder: (context) => HomePage()),
+        //     );
+        //   },
+        // ),
         title: const Text('Planner'),
         //backgroundColor: Colors.purple[800],
         actions: [

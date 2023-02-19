@@ -19,7 +19,7 @@ class SleepTrackerState extends State<SleepTracker> {
         fit: StackFit.expand,
         children: [ 
           new Image(
-            image: const AssetImage("assets/images/tracker/sleep/sleepbg.jpg"),
+            image: const AssetImage("assets/images/tracker/sleep/sleepbg.png"),
             fit: BoxFit.cover,
             color: Colors.black45,
             colorBlendMode: BlendMode.darken,
@@ -45,42 +45,20 @@ class SleepTrackerState extends State<SleepTracker> {
 
               const SizedBox(height: 60.0),
 
-              //moon maker custom painter
+              //moon maker custom painter            
+
               Center(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Stack(
-                    children: [
-                      Container(
-                        width: 200,
-                        height: 200,
-                        child: MoonMaker(size: 120),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(                          DateTime.now().toString().substring(11, 16),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ],    ),
+                child: Container(                
+                  width: 230,
+                  height: 230,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/tracker/sleep/moon.png'),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                 ),
               ),
-
-              // Center(
-              //   child: Container(                
-              //     width: 230,
-              //     height: 230,
-              //     decoration: BoxDecoration(
-              //       image: DecorationImage(
-              //         image: AssetImage('assets/images/tracker/sleep/moon.png'),
-              //         fit: BoxFit.fill,
-              //       ),
-              //     ),
-              //   ),
-              // ),
 
               SizedBox(height: 30.0),
 
