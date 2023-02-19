@@ -14,6 +14,24 @@ class _SectionsState extends State<Sections> {
   int _selectedIndex = 0;
   final ScrollController _homeController = ScrollController();
   
+  int _counter = 7;
+
+  void _incrementCounter() {
+    if (_counter < 7) {
+      setState(() {
+        _counter++;
+      });
+    }
+  }
+
+  void _decrementCounter() {
+    if (0 < _counter) {
+      setState(() {
+        _counter--;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
@@ -305,7 +323,7 @@ class _SectionsState extends State<Sections> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       GestureDetector(
-                                        onTap: () {},
+                                        onTap: _decrementCounter,
                                         child: Container(
                                           height: 30,
                                           width: 30,
@@ -334,7 +352,7 @@ class _SectionsState extends State<Sections> {
                                         ),
                                       ),
                                       GestureDetector(
-                                        onTap: () {},
+                                        onTap: _incrementCounter,
                                         child: Container(
                                           height: 30,
                                           width: 30,
@@ -354,7 +372,7 @@ class _SectionsState extends State<Sections> {
                                     height: 20,
                                   ),
                                   Text(
-                                    "Drink 7 glasses",
+                                    "Drink ${_counter} glasses",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500, fontSize: 18),
                                   ),
