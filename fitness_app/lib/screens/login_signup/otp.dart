@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitness_app/main.dart';
+import 'package:fitness_app/screens/Homepage_Sections/homepage.dart';
 import 'package:fitness_app/screens/login_signup/phone.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
@@ -112,18 +112,22 @@ class _MyVerifyState extends State<MyVerify> {
                         primary: Colors.purple,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    onPressed: () async {
-                      try {
-                        PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: MyPhone.verify, smsCode: code);
+                    // onPressed: () async {
+                    //   try {
+                    //     PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: MyPhone.verify, smsCode: code);
 
-                      // Sign the user in (or link) with the credential
-                      await auth.signInWithCredential(credential);
-                      Navigator.pushNamedAndRemoveUntil(context, 'homepage', (route) => false);
-                      }
-                      catch (e) {
-                        print("Wrong OTP");
-                      }
-                    },
+                    //   // Sign the user in (or link) with the credential
+                    //   await auth.signInWithCredential(credential);
+                    //   Navigator.pushNamedAndRemoveUntil(context, 'homepage', (route) => false);
+                    //   }
+                    //   catch (e) {
+                    //     print("Wrong OTP");
+                    //   }
+                    // },
+                    onPressed: () => Navigator.push (
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        ),
                     child: Text("Verify Phone Number")),
               ),
               Row(
