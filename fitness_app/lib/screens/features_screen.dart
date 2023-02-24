@@ -1,9 +1,34 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_cast
 
 import 'package:flutter/material.dart';
 
-class FeaturesScreen extends StatelessWidget {
+import '../widget/circle_progressbar.dart';
+
+class FeaturesScreen extends StatefulWidget {
   const FeaturesScreen({super.key});
+
+  @override
+  State<FeaturesScreen> createState() => _FeaturesScreenState();
+}
+
+class _FeaturesScreenState extends State<FeaturesScreen> {
+  int _counter = 7;
+
+  void _incrementCounter() {
+    if (0 < _counter) {
+      setState(() {
+        _counter--;
+      });
+    }
+  }
+
+  void _decrementCounter() {
+    if (_counter < 7) {
+      setState(() {
+        _counter++;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -140,14 +165,16 @@ class FeaturesScreen extends StatelessWidget {
                                 height:
                                     MediaQuery.of(context).size.height - 720,
                                 width: MediaQuery.of(context).size.width - 310,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(
-                                        width: 7, color: Colors.grey.shade200)),
-                                child: Icon(
-                                  Icons.night_shelter_outlined,
-                                  color: Colors.blue,
-                                  size: 40,
+                                child: CustomPaint(
+                                  foregroundPainter: CircleProgressbar(),
+                                  child: Container(
+                                      height: 80,
+                                      width: 80,
+                                      child: Center(
+                                          child: Icon(
+                                              Icons.night_shelter_outlined,
+                                              color: Colors.blue,
+                                              size: 40))),
                                 ),
                               ),
                               SizedBox(
@@ -189,14 +216,14 @@ class FeaturesScreen extends StatelessWidget {
                                 height:
                                     MediaQuery.of(context).size.height - 720,
                                 width: MediaQuery.of(context).size.width - 310,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(
-                                        width: 7, color: Colors.grey.shade200)),
-                                child: Icon(
-                                  Icons.run_circle_outlined,
-                                  color: Colors.blue,
-                                  size: 40,
+                                child: CustomPaint(
+                                  foregroundPainter: CircleProgressbar(),
+                                  child: Container(
+                                      height: 80,
+                                      width: 80,
+                                      child: Center(
+                                          child: Icon(Icons.run_circle_outlined,
+                                              color: Colors.blue, size: 40))),
                                 ),
                               ),
                               SizedBox(
@@ -250,7 +277,7 @@ class FeaturesScreen extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: _decrementCounter,
                                     child: Container(
                                       height: 30,
                                       width: 30,
@@ -273,19 +300,20 @@ class FeaturesScreen extends StatelessWidget {
                                         720,
                                     width:
                                         MediaQuery.of(context).size.width - 310,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(50),
-                                        border: Border.all(
-                                            width: 7,
-                                            color: Colors.grey.shade200)),
-                                    child: Icon(
-                                      Icons.water_drop_outlined,
-                                      color: Colors.blue,
-                                      size: 40,
+                                    child: CustomPaint(
+                                      foregroundPainter: CircleProgressbar(),
+                                      child: Container(
+                                          height: 80,
+                                          width: 80,
+                                          child: Center(
+                                              child: Icon(
+                                                  Icons.water_drop_outlined,
+                                                  color: Colors.blue,
+                                                  size: 40))),
                                     ),
                                   ),
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: _incrementCounter,
                                     child: Container(
                                       height: 30,
                                       width: 30,
@@ -309,7 +337,7 @@ class FeaturesScreen extends StatelessWidget {
                                 height: 10,
                               ),
                               Text(
-                                "Drink 7 glasses",
+                                "Drink $_counter glasses",
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500, fontSize: 18),
                               ),
@@ -336,8 +364,6 @@ class FeaturesScreen extends StatelessWidget {
                           padding: EdgeInsets.all(15.0),
                           height: MediaQuery.of(context).size.height - 620,
                           width: MediaQuery.of(context).size.width - 220,
-                          // height: MediaQuery.of(context).size.width - 280,
-                          // width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -348,14 +374,14 @@ class FeaturesScreen extends StatelessWidget {
                                 height:
                                     MediaQuery.of(context).size.height - 720,
                                 width: MediaQuery.of(context).size.width - 310,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    border: Border.all(
-                                        width: 7, color: Colors.grey.shade200)),
-                                child: Icon(
-                                  Icons.medication_outlined,
-                                  color: Colors.blue,
-                                  size: 40,
+                                child: CustomPaint(
+                                  foregroundPainter: CircleProgressbar(),
+                                  child: Container(
+                                      height: 80,
+                                      width: 80,
+                                      child: Center(
+                                          child: Icon(Icons.medication,
+                                              color: Colors.blue, size: 40))),
                                 ),
                               ),
                               SizedBox(
