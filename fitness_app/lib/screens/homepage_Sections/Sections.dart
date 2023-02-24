@@ -1,6 +1,7 @@
 import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_tracker.dart';
 import 'package:fitness_app/screens/Tracker/SleepTracker/sleep_tracker.dart';
 import 'package:fitness_app/screens/Tracker/Step%20Tracker/step_tracker.dart';
+import 'package:fitness_app/screens/Tracker/Weight%20Tracker/weight_tracker.dart';
 import 'package:flutter/material.dart';
 
 class Sections extends StatefulWidget {
@@ -141,7 +142,14 @@ class _SectionsState extends State<Sections> {
                         ),
                         FloatingActionButton.small(
                           elevation: 0,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => WeightTracker()
+                                )
+                            );                          
+                          },
                           child: const Icon(Icons.add),
                           backgroundColor: Colors.purple.shade400,
                         )
