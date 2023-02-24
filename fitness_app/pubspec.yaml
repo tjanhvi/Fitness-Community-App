@@ -43,6 +43,7 @@ dependencies:
   pinput: ^2.2.23
   firebase_core: ^2.4.1
   firebase_auth: ^4.2.5
+  syncfusion_flutter_charts: ^20.4.51
 
 dev_dependencies:
   flutter_test:
