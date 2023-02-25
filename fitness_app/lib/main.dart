@@ -15,7 +15,7 @@ void main() async {
     routes: {
       'phone': (context) => MyPhone(),
       'verify': (context) => MyVerify(),
-      'home': (context) => MyHomePage(title: 'Fitness App',),
+      'home': (context) => MyHomePage(title: 'Fitness App'),
     },
   ));
 }
