@@ -2,7 +2,9 @@ import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_tracker.dar
 import 'package:fitness_app/screens/Tracker/SleepTracker/sleep_tracker.dart';
 import 'package:fitness_app/screens/Tracker/Step%20Tracker/step_tracker.dart';
 import 'package:fitness_app/screens/Tracker/Weight%20Tracker/weight_tracker.dart';
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Sections extends StatefulWidget {
   const Sections({super.key});
@@ -33,24 +35,23 @@ class _SectionsState extends State<Sections> {
     }
   }
 
+  final _controller = PageController(
+    initialPage: 0,
+  );
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
-      drawer: Drawer(),   
+    return Scaffold(  
       appBar: AppBar(
-        title: Text('Fitness App'),
-        backgroundColor: Colors.purple.shade400,
-        actions: [          
+        leading: IconButton(
+          icon: const Icon(Icons.waving_hand, color: Colors.purple),
+          onPressed: () {},
+        ),   
+        title: Text('Good Morning!', style: TextStyle(color: Colors.black),),
+        backgroundColor: Colors.white,
+        actions: [
           IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.more_vert),
+            icon: const Icon(Icons.share, color: Colors.purple),
             onPressed: () {},
           ),
         ],
@@ -63,6 +64,19 @@ class _SectionsState extends State<Sections> {
             child: Column(  
               crossAxisAlignment: CrossAxisAlignment.start,    
               children: <Widget>[
+
+                const SizedBox(
+                  height: 10,
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                      height: 100,
+                      width: MediaQuery.of(context).size.width,
+                      child: upCard(controller: _controller)),
+                ),
+
                 const SizedBox(
                   height: 20,
                 ),
@@ -87,7 +101,7 @@ class _SectionsState extends State<Sections> {
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   child: Container(
                     padding: EdgeInsets.all(15.0),
-                    height: MediaQuery.of(context).size.height - 685,
+                    height: 120,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -101,9 +115,8 @@ class _SectionsState extends State<Sections> {
                             Row(
                               children: [
                                 Container(
-                                  height:
-                                      MediaQuery.of(context).size.height - 720,
-                                  width: MediaQuery.of(context).size.width - 310,
+                                  height: 80,
+                                  width: 80,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(50),
                                       border: Border.all(
@@ -309,95 +322,128 @@ class _SectionsState extends State<Sections> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         //row - 2 , box 3 glass of water to drink
-                        InkWell(
-                          onTap: () {                            
-                          },                          
-                          child: Material(
-                            elevation: 5,
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            child: Container(
-                              padding:
-                                  EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-                              height: MediaQuery.of(context).size.height - 620,
-                              width: MediaQuery.of(context).size.width - 220,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(Radius.circular(20)),
-                              ),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                          InkWell(
+                            onTap: () {},
+                            child: FlipCard(
+                              flipOnTouch: true,
+                              front: Material(
+                                elevation: 5,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 15, horizontal: 5),
+                                  height:
+                                      MediaQuery.of(context).size.height - 620,
+                                  width:
+                                      MediaQuery.of(context).size.width - 220,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  child: Column(
                                     children: [
-                                      GestureDetector(
-                                        onTap: _decrementCounter,
-                                        child: Container(
-                                          height: 30,
-                                          width: 30,
-                                          child: Center(
-                                              child: Text(
-                                            "−",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 30,
-                                                color: Colors.purple),
-                                          )),
-                                        ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: _decrementCounter,
+                                            child: Container(
+                                              height: 30,
+                                              width: 30,
+                                              child: Center(
+                                                  child: Text(
+                                                "−",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 30,
+                                                    color: Colors.purple),
+                                              )),
+                                            ),
+                                          ),
+                                          Container(
+                                            height: 90.0,
+                                            width: 90.0,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(50),
+                                                border: Border.all(
+                                                    width: 7,
+                                                    color:
+                                                        Colors.grey.shade200)),
+                                            child: Icon(
+                                              Icons.water_drop_outlined,
+                                              color: Colors.purple,
+                                              size: 40,
+                                            ),
+                                          ),
+                                          GestureDetector(
+                                            onTap: _incrementCounter,
+                                            child: Container(
+                                              height: 30,
+                                              width: 30,
+                                              child: Center(
+                                                  child: Text(
+                                                "+",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 30,
+                                                    color: Colors.purple),
+                                              )),
+                                            ),
+                                          )
+                                        ],
                                       ),
-                                      Container(
-                                        height: 90.0,
-                                        width: 90.0,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(50),
-                                            border: Border.all(
-                                                width: 7,
-                                                color: Colors.grey.shade200)),
-                                        child: Icon(
-                                          Icons.water_drop_outlined,
-                                          color: Colors.purple,
-                                          size: 40,
-                                        ),
+                                      SizedBox(
+                                        height: 20,
                                       ),
-                                      GestureDetector(
-                                        onTap: _incrementCounter,
-                                        child: Container(
-                                          height: 30,
-                                          width: 30,
-                                          child: Center(
-                                              child: Text(
-                                            "+",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 30,
-                                                color: Colors.purple),
-                                          )),
-                                        ),
-                                      )
+                                      Text(
+                                        "Drink ${_counter} glasses",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 18),
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text(
+                                        "of water",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.grey.shade500),
+                                      ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Drink ${_counter} glasses",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w500, fontSize: 18),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    "of water",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.grey.shade500),
-                                  ),
-                                ],
+                                ),
                               ),
-                            ),
+                              back: Container(
+                                child: Material(
+                                  elevation: 5,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
+                                  child: Container(
+                                    child: Lottie.asset(
+                                        "assets/images/homepage/done.json"),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 15, horizontal: 5),
+                                    height:
+                                        MediaQuery.of(context).size.height -
+                                            620,
+                                    width:
+                                        MediaQuery.of(context).size.width -
+                                            220,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20)),
+                                    ),
+                                  )
+                                ),
+                              ),
+                            )
                           ),
-                        ),
           
                         // row 2 , box -4 Medication track
           
@@ -1560,4 +1606,145 @@ class _SectionsState extends State<Sections> {
   
   }
 }
+
+
+//start of homepage
+class overlapTop extends StatelessWidget {
+  const overlapTop({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+          decoration: BoxDecoration(
+            color: Colors.orange,
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+          height: 100,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Icon(
+                Icons.dinner_dining,
+                size: 40,
+              ),
+              Text(
+                "Eat upto 1,250 calories",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20),
+              ),
+              Icon(
+                Icons.add_box,
+                size: 40,
+              )
+            ],
+          )),
+    );
+  }
+}
+
+class upCard extends StatelessWidget {
+  const upCard({
+    Key? key,
+    required PageController controller,
+  })  : _controller = controller,
+        super(key: key);
+
+  final PageController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        image: DecorationImage(
+          image: AssetImage('assets/images/homepage/subscription.jpg'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      height: 100,
+      child: PageView(
+        scrollDirection: Axis.horizontal,
+        controller: _controller,
+        children: [
+          singleSlideRow(
+              imgSrc: "assets/images/homepage/price.png",
+              desc: "Get 1 year at just Rs.1000/year",
+              title: "Invest in good health for a long term"),
+          singleSlideRow(
+              imgSrc: "assets/images/homepage/price.png",
+              desc: "Get 6 months at just Rs.499/6 months",
+              title: "Invest in good health for 6 months"),
+          singleSlideRow(
+              imgSrc: "assets/images/homepage/price.png",
+              desc: "Get 1 year at just Rs.100/month",
+              title: "Invest in good health for 1 month"),
+        ],
+      ),
+    );
+  }
+}
+
+class singleSlideRow extends StatelessWidget {
+  final String imgSrc;
+  final String desc;
+  final String title;
+  const singleSlideRow({
+    super.key,
+    required this.imgSrc,
+    required this.desc,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(),
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Image.asset(
+            imgSrc,
+            height: 50,
+            width: 50,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                desc,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              )
+            ],
+          ),
+          Icon(
+            Icons.arrow_circle_right_rounded,
+            color: Colors.white,
+            size: 30,
+          )
+        ],
+      ),
+    );
+  }
+}
+//end of homepage page start
 

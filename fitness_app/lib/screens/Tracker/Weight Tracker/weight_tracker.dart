@@ -12,6 +12,15 @@ class WeightTracker extends StatefulWidget {
 
 class WeightTrackerState extends State<WeightTracker> {
 
+  int _selectedOption = 1;
+  
+  @override
+  void initState() {
+    super.initState();
+    _selectedOption = 1; // or whatever the default option should be
+  }
+
+
   final List<WeightData> weightData = <WeightData>[
     WeightData(DateTime(2022, 2, 1), 75),
     WeightData(DateTime(2022, 2, 10), 74.5),
@@ -24,23 +33,7 @@ class WeightTrackerState extends State<WeightTracker> {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(      
-      // appBar: AppBar(
-      //   leading : IconButton(
-      //     icon: Icon(Icons.arrow_back, color: Colors.purple),
-      //     onPressed: () {
-      //       Navigator.push (
-      //         context,
-      //         MaterialPageRoute(builder: (context) => HomePage()),
-      //       );
-      //     },
-      //   ),
-      //   title: const Text(
-      //     'Weight Tracker',
-      //     style: TextStyle(color: Colors.purple),
-      //   ),
-      //   backgroundColor: Colors.white,
-      // ),
+    return Scaffold( 
       body: SingleChildScrollView(
         child: Container(
           color: Colors.grey.shade200,
@@ -137,12 +130,17 @@ class WeightTrackerState extends State<WeightTracker> {
                           ],
                         ),  
                     
-                        const SizedBox(width: 75),
-                    
+                        const SizedBox(width: 75), 
+
                         IconButton(
                           icon: Icon(Icons.edit, color: Colors.purple, size: 25),
-                          onPressed: () {},
-                        ),  
+                          onPressed: () {
+                            Navigator.push (
+                              context,
+                              MaterialPageRoute(builder: (context) => RadioDialog()),
+                            );
+                          },
+                        ),
                     
                         const SizedBox(width: 20),                    
                     
@@ -215,7 +213,7 @@ class WeightTrackerState extends State<WeightTracker> {
                         const SizedBox(width: 20),
 
                         Text(
-                          "Weight History",
+                          "Diet Suggestions",
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 17,
@@ -223,28 +221,21 @@ class WeightTrackerState extends State<WeightTracker> {
                         ),
                         
                         const SizedBox(width: 20),
-                        
-                        Row(
-                          children: [
-                            //weight card
-                            Container(
-                              height: 75.0,
-                              width: 75.0,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(
-                                      width: 7, color: Colors.grey.shade200)),
-                              child: Icon(
-                                Icons.monitor_weight,
-                                color: Colors.purple,
-                                size: 35,
-                              ),
-                            ),
-                          ],
-                        ),
 
+                        //diet char for the user
+                        Container(                          
+                          child: Icon(
+                            Icons.food_bank,
+                            color: Colors.purple,
+                            size: 35,
+                          ),
+                        ), 
                       ],
                     ),
+
+                    const SizedBox(height: 10),
+
+                    const DietChart(),
                   ],
                 ),
               ),
@@ -262,3 +253,106 @@ class WeightData {
   final DateTime date;
   final double weight;
 }
+
+//use of radio button in dialog box
+class RadioDialog extends StatefulWidget {
+  const RadioDialog({Key? key}) : super(key: key);
+
+  @override
+  RadioDialogState createState() => RadioDialogState();
+}
+
+class RadioDialogState extends State<RadioDialog> {
+  int _selectedOption = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text('Goal Settings'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          RadioListTile(
+            title: Text("Update Goal"),
+            value: 1, 
+            groupValue: _selectedOption, 
+            onChanged: (value){
+              setState(() {
+                  _selectedOption = value!;
+              });
+            },
+          ),
+          RadioListTile(
+            title: Text("Reset Goal"),
+            value: 2, 
+            groupValue: _selectedOption, 
+            onChanged: (value){
+              setState(() {
+                  _selectedOption = value!;
+              });
+            },
+          ),
+        ],
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: Text('Cancel'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        TextButton(
+          child: Text('Ok'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ],
+    );
+  }
+}
+
+
+//diet char for the user starts
+class DietChart extends StatefulWidget {
+  const DietChart({Key? key}) : super(key: key);
+
+  @override
+  DietChartState createState() => DietChartState();
+}
+
+class DietChartState extends State<DietChart> {
+  @override
+  Widget build(BuildContext context) {
+    var dietData;
+    return Container(
+      child: SfCircularChart(
+        series: <CircularSeries>[
+          DoughnutSeries<DietData, String>(
+            dataSource: dietData,
+            xValueMapper: (DietData data, _) => data.diet,
+            yValueMapper: (DietData data, _) => data.calories,
+            dataLabelSettings: DataLabelSettings(
+              isVisible: true,
+              labelPosition: ChartDataLabelPosition.outside,
+              connectorLineSettings: ConnectorLineSettings(
+                length: '20%',
+                width: 1,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DietData {
+  DietData(this.diet, this.calories);
+  final String diet;
+  final double calories;
+}
+
+//diet char for the user ends
+

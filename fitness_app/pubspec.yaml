@@ -44,6 +44,8 @@ dependencies:
   firebase_core: ^2.4.1
   firebase_auth: ^4.2.5
   syncfusion_flutter_charts: ^20.4.51
+  lottie:
+  flip_card:
 
 dev_dependencies:
   flutter_test:
@@ -92,6 +94,10 @@ flutter:
     - assets/images/homepage/ques1.jpg
     - assets/images/homepage/ques2.jpg
     - assets/images/homepage/ques3.jpg
+    - assets/images/homepage/done.json
+    - assets/images/homepage/hello.json
+    - assets/images/homepage/price.png
+    - assets/images/homepage/subscription.jpg
     - assets/images/profile/profile.png
     - assets/images/tracker/medicine/medicineicon.jpg
     - assets/images/tracker/medicine/tablet.png
@@ -106,6 +112,11 @@ flutter:
     - assets/images/tracker/sleep/sleepbg.png
     - assets/images/tracker/sleep/sleepinfobg.jpg
     - assets/images/tracker/sleep/moon.png
+    - assets/images/tracker/weight/chicken.jpg
+    - assets/images/tracker/weight/salad.jpg
+    - assets/images/tracker/weight/smoothie.jpg
+    
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
