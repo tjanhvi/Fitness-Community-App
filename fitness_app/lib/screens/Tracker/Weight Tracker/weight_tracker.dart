@@ -235,7 +235,14 @@ class WeightTrackerState extends State<WeightTracker> {
 
                     const SizedBox(height: 10),
 
-                    const DietChart(),
+                    DietSuggestionCard(
+                      title: 'Plant-Based Diet',
+                      description:
+                          'A plant-based diet emphasizes foods like fruits, vegetables, whole grains, legumes, nuts, and seeds. It limits or excludes animal products like meat, dairy, and eggs.',
+                      imageUrl:
+                          'https://tamil.samayam.com/thumb/66204197/66204197.jpg?imgsize=89137&width=540&height=405&resizemode=75',
+                    ),
+
                   ],
                 ),
               ),
@@ -314,32 +321,83 @@ class RadioDialogState extends State<RadioDialog> {
 
 
 //diet char for the user starts
-class DietChart extends StatefulWidget {
-  const DietChart({Key? key}) : super(key: key);
+class DietSuggestionCard extends StatelessWidget {
+  final String title;
+  final String description;
+  final String imageUrl;
 
-  @override
-  DietChartState createState() => DietChartState();
-}
+  const DietSuggestionCard({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.imageUrl,
+  }) : super(key: key);
 
-class DietChartState extends State<DietChart> {
   @override
   Widget build(BuildContext context) {
-    var dietData;
     return Container(
-      child: SfCircularChart(
-        series: <CircularSeries>[
-          DoughnutSeries<DietData, String>(
-            dataSource: dietData,
-            xValueMapper: (DietData data, _) => data.diet,
-            yValueMapper: (DietData data, _) => data.calories,
-            dataLabelSettings: DataLabelSettings(
-              isVisible: true,
-              labelPosition: ChartDataLabelPosition.outside,
-              connectorLineSettings: ConnectorLineSettings(
-                length: '20%',
-                width: 1,
-                color: Colors.white,
-              ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 3,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(8),
+              topRight: Radius.circular(8),
+            ),
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
+              height: 245,
+            ),
+          ),
+          SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  description,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Learn More',
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
@@ -348,11 +406,5 @@ class DietChartState extends State<DietChart> {
   }
 }
 
-class DietData {
-  DietData(this.diet, this.calories);
-  final String diet;
-  final double calories;
-}
 
-//diet char for the user ends
 

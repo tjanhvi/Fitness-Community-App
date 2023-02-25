@@ -1,6 +1,7 @@
 import 'package:fitness_app/screens/Tracker/MedicineTracker/medicine_tracker.dart';
 import 'package:fitness_app/screens/Tracker/SleepTracker/sleep_tracker.dart';
 import 'package:fitness_app/screens/Tracker/Step%20Tracker/step_tracker.dart';
+import 'package:fitness_app/screens/Tracker/Weight%20Tracker/Nutition.dart';
 import 'package:fitness_app/screens/Tracker/Weight%20Tracker/weight_tracker.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class _SectionsState extends State<Sections> {
           icon: const Icon(Icons.waving_hand, color: Colors.purple),
           onPressed: () {},
         ),   
-        title: Text('Good Morning!', style: TextStyle(color: Colors.black),),
+        title: Text('Welcome, Fitto', style: TextStyle(color: Colors.black),),
         backgroundColor: Colors.white,
         actions: [
           IconButton(
@@ -64,9 +65,8 @@ class _SectionsState extends State<Sections> {
             child: Column(  
               crossAxisAlignment: CrossAxisAlignment.start,    
               children: <Widget>[
-
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
 
                 Padding(
@@ -75,11 +75,109 @@ class _SectionsState extends State<Sections> {
                       height: 100,
                       width: MediaQuery.of(context).size.width,
                       child: upCard(controller: _controller)),
+                ),                
+
+                const SizedBox(
+                  height: 10,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      "Nutrition",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: 21),
+                    ),
+                    Icon(Icons.info_rounded)
+                  ],
                 ),
 
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
+
+                Stack(children: [
+                  Container(
+                    padding: EdgeInsets.all(15.0),
+                    height: 170,
+                    width: double.maxFinite,
+                    decoration: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(Icons.alarm_on),
+                        Text("Create Your Diet & Workout Plan"),
+                        Icon(Icons.arrow_forward)
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(15.0),
+                    height: 120,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  height: 80,
+                                  width: 80,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      border: Border.all(
+                                          width: 7, color: Colors.grey.shade200)),
+                                  child: Icon(
+                                    Icons.flatware,
+                                    color: Colors.orange,
+                                    size: 40,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      "Eat upto 1,250 Cal",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700, fontSize: 21),
+                                    ),                                    
+                                  ],
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push (
+                              context,
+                              MaterialPageRoute(builder: (context) => const Nutrition()),
+                            );
+                          },
+                          icon: Icon(Icons.add),
+                          color: Colors.orange,
+                        )
+                      ],
+                    ),
+                  ),
+                ]),
+
+                const SizedBox(
+                  height: 20,
+                ),                
 
                 Row(
                   //weight section
@@ -220,8 +318,8 @@ class _SectionsState extends State<Sections> {
                               child: Column(
                                 children: [
                                   Container(
-                                    height: 90.0,
-                                    width: 90.0,
+                                    height: 85.0,
+                                    width: 85.0,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
@@ -233,7 +331,7 @@ class _SectionsState extends State<Sections> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 20,
+                                    height: 25,
                                   ),
                                   Text(
                                     "Track your steps",
@@ -276,8 +374,8 @@ class _SectionsState extends State<Sections> {
                               child: Column(
                                 children: [
                                   Container(
-                                    height: 90.0,
-                                    width: 90.0,
+                                    height: 85.0,
+                                    width: 85.0,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
@@ -289,7 +387,7 @@ class _SectionsState extends State<Sections> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 20,
+                                    height: 25,
                                   ),
                                   Text(
                                     "Track your sleep",
@@ -364,8 +462,8 @@ class _SectionsState extends State<Sections> {
                                             ),
                                           ),
                                           Container(
-                                            height: 90.0,
-                                            width: 90.0,
+                                            height: 85.0,
+                                            width: 85.0,
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(50),
@@ -397,7 +495,7 @@ class _SectionsState extends State<Sections> {
                                         ],
                                       ),
                                       SizedBox(
-                                        height: 20,
+                                        height: 25,
                                       ),
                                       Text(
                                         "Drink ${_counter} glasses",
@@ -470,8 +568,8 @@ class _SectionsState extends State<Sections> {
                               child: Column(
                                 children: [
                                   Container(
-                                    height: 90.0,
-                                    width: 90.0,
+                                    height: 85.0,
+                                    width: 85.0,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(50),
                                         border: Border.all(
@@ -483,7 +581,7 @@ class _SectionsState extends State<Sections> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 20,
+                                    height: 25,
                                   ),
                                   Text(
                                     "Track Medication",
@@ -1746,5 +1844,5 @@ class singleSlideRow extends StatelessWidget {
     );
   }
 }
-//end of homepage page start
+
 
