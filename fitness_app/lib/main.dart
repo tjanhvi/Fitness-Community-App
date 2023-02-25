@@ -1,8 +1,6 @@
 // ignore_for_file: unnecessary_cast, prefer_const_constructors
 
 import 'package:fitness_app/screens/Nutition.dart';
-import 'package:fitness_app/screens/features_screen.dart';
-import 'package:fitness_app/widget/circle_progressbar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
